@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Justus Osero</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Justus<span>Osero</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="blog">
+        <div class="container">
+            <h1 class="section-title">My Blog</h1>
+            <p class="section-subtitle">Thoughts on web design, software engineering, and creative coding</p>
+            
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/800x500" alt="Blog Post 1">
+                        <div class="post-date">June 15, 2023</div>
+                    </div>
+                    <div class="post-content">
+                        <h2><a href="blog/post1.html">The Future of Responsive Web Design</a></h2>
+                        <p>Exploring the latest trends and techniques in creating websites that work seamlessly across all devices...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-tag"></i> Web Design</span>
+                            <span><i class="fas fa-clock"></i> 5 min read</span>
+                        </div>
+                        <a href="blog/post1.html" class="btn secondary">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/800x500" alt="Blog Post 2">
+                        <div class="post-date">May 28, 2023</div>
+                    </div>
+                    <div class="post-content">
+                        <h2><a href="blog/post2.html">Getting Started with React Hooks</a></h2>
+                        <p>A beginner-friendly guide to understanding and implementing React Hooks in your projects...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-tag"></i> Software Engineering</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <a href="blog/post2.html" class="btn secondary">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/800x500" alt="Blog Post 3">
+                        <div class="post-date">April 10, 2023</div>
+                    </div>
+                    <div class="post-content">
+                        <h2><a href="#">Creative Coding: Art with JavaScript</a></h2>
+                        <p>How I use programming as a creative outlet and the tools that make it possible...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-tag"></i> Creative Coding</span>
+                            <span><i class="fas fa-clock"></i> 6 min read</span>
+                        </div>
+                        <a href="#" class="btn secondary">Read More</a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="btn primary"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="#" class="btn primary">Next <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Justus Osero. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

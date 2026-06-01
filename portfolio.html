@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Justus Osero</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Justus<span>Osero</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="portfolio">
+        <div class="container">
+            <h1 class="section-title">My Portfolio</h1>
+            <div class="filter-buttons">
+                <button class="btn filter-btn active" data-filter="all">All</button>
+                <button class="btn filter-btn" data-filter="web">Web Design</button>
+                <button class="btn filter-btn" data-filter="software">Software</button>
+                <button class="btn filter-btn" data-filter="personal">Personal Projects</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 1">
+                        <div class="overlay">
+                            <h3>E-commerce Website</h3>
+                            <p>A fully responsive online store with payment integration</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="software">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                        <div class="overlay">
+                            <h3>Task Management App</h3>
+                            <p>A productivity application for team collaboration</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 3">
+                        <div class="overlay">
+                            <h3>Portfolio Website</h3>
+                            <p>A custom portfolio site for a photographer</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="personal">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 4">
+                        <div class="overlay">
+                            <h3>Creative Coding Project</h3>
+                            <p>Interactive art created with JavaScript</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="software">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 5">
+                        <div class="overlay">
+                            <h3>Weather Application</h3>
+                            <p>Real-time weather data with beautiful visualizations</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="personal">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 6">
+                        <div class="overlay">
+                            <h3>Blog Platform</h3>
+                            <p>A custom CMS for content creators</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Justus Osero. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

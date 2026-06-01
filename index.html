@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justus Osero | Web Designer, Data Analyst & Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(15,23,42,0.95);
+    backdrop-filter:blur(10px);
+    padding:15px 0;
+}
+
+header .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    color:#38bdf8;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:1.5rem;
+    cursor:pointer;
+}
+
+section{
+    padding:100px 0;
+}
+
+#home{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+#home .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-content h1{
+    font-size:3.5rem;
+    margin-bottom:10px;
+}
+
+.hero-content h1 span{
+    color:#38bdf8;
+}
+
+.hero-content h2{
+    color:#cbd5e1;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    margin-bottom:25px;
+}
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.image-wrapper{
+    position:relative;
+}
+
+.image-wrapper img{
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #38bdf8;
+    box-shadow:0 0 30px rgba(56,189,248,.4);
+}
+
+.edit-overlay{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    width:50px;
+    height:50px;
+    background:#38bdf8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    margin-right:10px;
+    transition:.3s;
+}
+
+.primary{
+    background:#38bdf8;
+    color:#fff;
+}
+
+.secondary{
+    border:2px solid #38bdf8;
+    color:#38bdf8;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+    color:#38bdf8;
+}
+
+.skills-grid,
+.portfolio-grid,
+.blog-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.skill-card,
+.blog-post{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.skill-card:hover,
+.blog-post:hover{
+    transform:translateY(-10px);
+}
+
+.skill-icon{
+    font-size:3rem;
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.about-content,
+.contact-content{
+    display:flex;
+    gap:50px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.about-image img{
+    width:400px;
+    border-radius:15px;
+}
+
+.about-text{
+    flex:1;
+}
+
+.about-text ul{
+    list-style:none;
+    margin:20px 0;
+}
+
+.about-text li{
+    margin-bottom:10px;
+}
+
+.about-text i{
+    color:#38bdf8;
+}
+
+.portfolio-image{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.portfolio-image img{
+    width:100%;
+    display:block;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    opacity:0;
+    transition:.4s;
+    padding:20px;
+}
+
+.portfolio-image:hover .overlay{
+    opacity:1;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+    background:#1e293b;
+    color:white;
+}
+
+.contact-form textarea{
+    height:150px;
+    resize:none;
+}
+
+.social-icons{
+    position:fixed;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.social-icons a{
+    color:white;
+    font-size:1.5rem;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    color:#38bdf8;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#020617;
+}
+
+.slide-in{
+    opacity:0;
+    transform:translateY(30px);
+    transition:.8s;
+}
+
+.slide-in.animated{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.delay-1{
+    transition-delay:.2s;
+}
+
+.delay-2{
+    transition-delay:.4s;
+}
+
+.delay-3{
+    transition-delay:.6s;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+.pulse{
+    animation:pulse 3s infinite;
+}
+
+@media(max-width:768px){
+
+    nav{
+        position:absolute;
+        top:70px;
+        left:-100%;
+        width:100%;
+        background:#0f172a;
+        transition:.3s;
+    }
+
+    nav.active{
+        left:0;
+    }
+
+    nav ul{
+        flex-direction:column;
+        padding:20px;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    #home .container{
+        flex-direction:column-reverse;
+        text-align:center;
+    }
+
+    .hero-content h1{
+        font-size:2.5rem;
+    }
+
+    .image-wrapper img{
+        width:250px;
+        height:250px;
+    }
+
+    .social-icons{
+        display:none;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Justus<span>Osero</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <div class="social-icons">
+        <a href="https://www.facebook.com/osero Justus" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/_.spoiler._.254._" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/justus-osero" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="slide-in">Hello, I'm <span>Justus Osero</span></h1>
+                <h2 class="slide-in delay-1">Web Designer, Data Analyst & Software Engineer</h2>
+                <p class="slide-in delay-2">Creating digital experiences that inspire and engage</p>
+                <div class="cta-buttons slide-in delay-3">
+                    <a href="#portfolio" class="btn primary">MY PROJECTS</a>
+                    <a href="#contact" class="btn secondary">CONTACT ME</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper pulse">
+                    <img src="IMG-20251003-WA0009[1].jpg" alt="Justus Osero" id="profile-photo">
+                    <div class="edit-overlay" id="edit-photo">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Design</h3>
+                    <p>Creating beautiful, responsive websites with modern design principles.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Software Engineering</h3>
+                    <p>Building robust applications with clean, maintainable code.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Responsive Design</h3>
+                    <p>Ensuring your site looks great on all devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h1 class="section-title">About Me</h1>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="WhatsApp Image 2026-06-01 at 15.21.49.jpeg" alt="Justus Osero">
+                </div>
+                <div class="about-text">
+                    <h2>Who I Am</h2>
+                    <p>I'm Justus Osero, a passionate web designer software engineer and Data analyst based in Kenya. I specialize in Cyber security and creating beautiful, functional websites and applications that help businesses grow and connect with their audience.</p>
+                    
+                    <h2>My Journey</h2>
+                    <p>My journey in tech began when I was first introduced to programming in high school. Since then, I've dedicated myself to mastering the art of web development and software engineering, constantly learning new technologies and techniques.</p>
+                    
+                    <h2>What I Do</h2>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Responsive Web Design</li>
+                        <li><i class="fas fa-check"></i> Front-end Development</li>
+                        <li><i class="fas fa-check"></i> Back-end Development</li>
+                        <li><i class="fas fa-check"></i> UI/UX Design</li>
+                        <li><i class="fas fa-check"></i> Technical Writing</li>
+                    </ul>
+                    
+                    <a href="#portfolio" class="btn primary">View My Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h1 class="section-title">My Portfolio</h1>
+            <div class="filter-buttons">
+                <button class="btn filter-btn active" data-filter="all">All</button>
+                <button class="btn filter-btn" data-filter="web">Web Design</button>
+                <button class="btn filter-btn" data-filter="software">Software</button>
+                <button class="btn filter-btn" data-filter="personal">Personal Projects</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="image.png" alt="C++ Bank management system">
+                        <div class="overlay">
+                            <h3>E-commerce Website</h3>
+                            <p>A fully responsive online store with payment integration</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="software">
+                    <div class="portfolio-image">
+                        <img src="WhatsApp Image 2026-06-01 at 15.34.38.jpeg" alt="C++ school management system">
+                        <div class="overlay">
+                            <h3>Task Management App</h3>
+                            <p>A productivity application for team collaboration</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="WhatsApp Image 2026-06-01 at 15.36.20.jpeg" alt="simple calculator">
+                        <div class="overlay">
+                            <h3>Portfolio Website</h3>
+                            <p>A custom portfolio site for a photographer</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="personal">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 4">
+                        <div class="overlay">
+                            <h3>Creative Coding Project</h3>
+                            <p>Interactive art created with JavaScript</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="software">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 5">
+                        <div class="overlay">
+                            <h3>Weather Application</h3>
+                            <p>Real-time weather data with beautiful visualizations</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="personal">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 6">
+                        <div class="overlay">
+                            <h3>Blog Platform</h3>
+                            <p>A custom CMS for content creators</p>
+                            <a href="#" class="btn primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h1 class="section-title">My Blog</h1>
+            <p class="section-subtitle">Thoughts on web design, software engineering, and creative coding</p>
+            
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/800x500" alt="Blog Post 1">
+                        <div class="post-date">June 15, 2023</div>
+                    </div>
+                    <div class="post-content">
+                        <h2><a href="#">The Future of Responsive Web Design</a></h2>
+                        <p>Exploring the latest trends and techniques in creating websites that work seamlessly across all devices...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-tag"></i> Web Design</span>
+                            <span><i class="fas fa-clock"></i> 5 min read</span>
+                        </div>
+                        <a href="#" class="btn secondary">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/800x500" alt="Blog Post 2">
+                        <div class="post-date">April 28, 2025</div>
+                    </div>
+                    <div class="post-content">
+                        <h2><a href="#">Getting Started with React Hooks</a></h2>
+                        <p>A beginner-friendly guide to understanding and implementing React Hooks in your projects...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-tag"></i> Software Engineering</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <a href="#" class="btn secondary">Read More</a>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <div class="post-image">
+                        <img src="https://via.placeholder.com/800x500" alt="Blog Post 3">
+                        <div class="post-date">December 28, 2024</div>
+                    </div>
+                    <div class="post-content">
+                        <h2><a href="#">Creative Coding: Art with JavaScript</a></h2>
+                        <p>How I use programming as a creative outlet and the tools that make it possible...</p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-tag"></i> Creative Coding</span>
+                            <span><i class="fas fa-clock"></i> 6 min read</span>
+                        </div>
+                        <a href="#" class="btn secondary">Read More</a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="btn primary"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="#" class="btn primary">Next <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h1 class="section-title">Get In Touch</h1>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>Feel free to reach out for collaborations, job opportunities, or just to say hello!</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:justus18860@gmail.com">justus18860@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:+254117487447">+254117487447</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h3>Follow Me</h3>
+                        <div class="social-icons-contact">
+                            <a href="https://www.facebook.com/oseroJustus" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/_.nxpain" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/justus-osero-6ba42a36b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Send Me a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Justus Osero. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-times');
+                this.querySelector('i').classList.toggle('fa-bars');
+            });
+            
+            // Close mobile menu when clicking a link
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('active');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                    }
+                    
+                    // Set active link
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                header.classList.toggle('scrolled', window.scrollY > 50);
+                
+                // Highlight active section in navigation
+                const sections = document.querySelectorAll('section');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+          item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Profile photo editor
+            const editPhoto = document.getElementById('edit-photo');
+            if (editPhoto) {
+                editPhoto.addEventListener('click', function() {
+                    // In a real implementation, this would open a file picker
+                    alert('Photo editor would open here. In a real implementation, you would upload/change your profile photo.');
+                });
+            }
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Here you would typically send the form data to a server
+                    // For demonstration, we'll just show an alert
+                    alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon at ${email}.`);
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+            
+            // Animation on scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.slide-in:not(.animated)');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+            
+            // Run once on page load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+            
